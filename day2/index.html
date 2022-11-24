@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            border: 1px solid
+        } */
+        body{
+            background-image: linear-gradient(45deg,rgba(176, 243, 241, 1) 10%, rgba(255, 207, 223, 1) 80%);
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 60vw;
+            padding: 60px;
+            text-align: center
+        }
+        h1 {
+            font-size: 3em;
+        }
+        label {
+            font-weight: 700;
+            font-size: 1.5em
+        }
+        .input-strings {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 2px;
+            background: rgb(225, 242, 255);
+            border: none
+        }
+        button {
+            padding: 15px 25px;
+            background: #ff5d8f;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Equal with Deletions</h1>
+        <p>write a function that determines if two strings are equal with deletions in two directions: a # means a backspace character (deleting backwards), and a % means a delete character (deleting forwards).</p>
+        <p>So, for example, your function would find that the strings "pine####apple" and "%%%%pineapple" are equal with deletions: both strings read as "apple" after the backspace deletions are performed in the first string, and the forward deletions are performed in the second string.
+        </p>
+        <div class="input-strings">
+            <label>
+                First String
+                <input type="text" placeholder="Enter a string">
+            </label>
+
+            <label>
+                Second String
+                <input type="text" placeholder="Enter a string">
+            </label>
+        </div>
+        <button onclick="testStrings()">Check</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let input = document.getElementsByTagName('input')
+        let result = document.getElementById('result')
+        function testStrings(){
+            if (!equal(input[0].value, input[1].value)){
+                result.innerHTML = 'Sorry, the strings are not equal.'
+            } else {
+                result.innerHTML = 'The strings are equal'
+            }
+        }
+        function equal(a, b){
+            let regex = /[^#]#|%[^%]/g
+            while (/#|%/.test(a)){
+                a = a.replace(regex, '')
+            }
+            while (/#|%/.test(b)){
+                b = b.replace(regex, '')
+            }
+            return (a===b)
+        }
+    </script>
+</body>
+</html>

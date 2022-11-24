@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Unique Characters</h1>
+    <p>write a function that determines if all the characters in a given string are unique.</p>
+    <input type="text" placeholder="Enter a string">
+    <button onclick="testUniqueCharacters()">Test</button>
+    <script>
+        let str = document.getElementsByTagName('input')
+        function testUniqueCharacters(){
+        let chars = [...str[0].value.toLowerCase()].sort()
+        let foundRepeated = false
+        let n = chars.length
+            for (let i = 0; i<n; i++) {
+                if (chars[i] === chars[i+1]) {
+                    foundRepeated = true;
+                    break
+                }
+            }
+            if (foundRepeated === true) {alert("It's not a string of unique characters")}
+            else {alert("All characters in the string are unique")}
+        }
+    </script>
+</body>
+</html>
