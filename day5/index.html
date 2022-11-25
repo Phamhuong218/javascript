@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            border: 1px solid
+        } */
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 20px 
+        }
+        .container {
+            background: #85cdf1;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            display: grid;
+            grid-template-rows: 100px 120px 30px 30px 30px auto;
+            gap: 10px;
+            height: 550px;
+           
+        }
+        .result {
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Special two-digit number
+        </h1>
+        <p>
+            A special two-digit number is a number such that when the sum of the digits of the number is added to the product of its digits, the result is equal to the original two-digit number.
+        </p>
+        <label>
+            Enter a two-digit number:    
+        </label>
+        <input type="number"/>
+        <button onclick="special2Digits()">Check</button>
+        <div class="result"></div>
+
+    </div>
+    <div class="container">
+        <h1>
+            Narcissistic numbers
+        </h1>
+        <p>
+            By definition, a narcissistic number is full of itself. A narcissistic number is the sum of its own digits each raised to the power of the number of digits.        </p>
+        <label>
+            Enter a three-digit number:    
+        </label>
+        <input type="number"/>
+        <button onclick="isNarcissistic()">Check</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            Area and perimetter finder
+        </h1>
+        <p>
+            Write a function that accepts width (decimal), height (decimal) and choice ("area", "perimetter") as input and calculates the area or perimetter of a square.        </p>
+        <label>
+            Enter a width, height and area/perimetter:    
+        </label>
+        <input type="text"/>
+        <button onclick="areaPerimetter()">Calculate</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            Triangle and parallelogram area finder
+        </h1>
+        <p>
+            Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates the area of that shape.        </p>
+        <label>
+            Enter a a base, height and triangle or parallelogram:    
+        </label>
+        <input type="text"/>
+        <button onclick="areaShape()">Calculate</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            The pH Scale
+        </h1>
+        <p>
+            Given a pH value, return whether that value is "alkaline" (greater than 7), "acidic" (less than 7), or "neutral" (7). Return "invalid" if the value given is less than 0 or greater than 14.        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="pHName()">Check</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            BMI Calculator
+        </h1>
+        <p>
+            Get heigt in cm and weight in kg of 1 human then calculate they BMI number and print answer        </p>
+        <label>
+            Enter your height and your weight:    
+        </label>
+        <input type="text"/>
+        <button onclick="BMI()">Check</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            Last Digit Ultimate
+        </h1>
+        <p>
+            Your job is to create a function, that takes 3 numbers: a, b, c and returns true if (the last digit of a * the last digit of b) = the last digit of c. Check the examples below for an explanation.
+        </p>
+        <label>
+            Enter three numbers:    
+        </label>
+        <input type="text"/>
+        <button onclick="lastDigits()">Check</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            Zodiac
+        </h1>
+        <p>
+            Create a function take age of person as argument and return which zodiac he/she is. Select current year: 2022      </p>
+        <label>
+            Enter your age:    
+        </label>
+        <input type="number"/>
+        <button onclick="zodiac()">Convert</button>
+        <div class="result"></div>
+    </div>
+    <div class="container">
+        <h1>
+            Quadratic expression Calculate
+        </h1>
+        <p>
+            Take a, b, c as arguments then solve Quadratic Expression, print delta's status & solution(s) ax2 + bx + c = 0        </p>
+        <label>
+            Enter a three numbers:    
+        </label>
+        <input type="text"/>
+        <button onclick="quadratic()">Calculate</button>
+        <div class="result"></div>
+    </div>
+    
+    <script>
+        let input = document.getElementsByTagName('input')
+        let div = document.querySelectorAll('.result')
+
+        const special2Digits = () => {
+            let a = document.createElement('p')
+            let z = Number(input[0].value)
+            let [x, y] = input[0].value.split('').map(i => Number(i))
+            let isTrue 
+            (x+y+x*y) === z ? isTrue = true : isTrue = false
+            a.innerText += 'special2Digits( '+ z +' ) --> ' + isTrue
+            div[0].appendChild(a)
+        }
+
+        const isNarcissistic = () => {
+            let a = document.createElement('p')
+            let b = Number(input[1].value)
+            let [x, y, z] = input[1].value.split('').map(i => Number(i))
+            let isTrue 
+            (x**3 +y**3 +z**3) === b ? isTrue = true : isTrue = false
+            a.innerText += 'isNarcissistic( '+ b +' ) --> ' + isTrue
+            div[1].appendChild(a)
+        }
+
+        const areaPerimetter = () => {
+            let a = document.createElement('p')
+            let b = input[2].value
+            let [x, y, z] = input[2].value.split(', ')
+            a.innerText += 'areaPerimetter( '+ x + ', ' + y + ', "' + z +'" ) --> '
+            div[2].appendChild(a)
+            if (z =='area'){
+                a.innerText += (+x * +y)
+         
+            } else if (z =='perimetter'){
+                a.innerText += ((+x + +y)*2)
+         
+            }
+        }  
+
+        const areaShape = () => {
+            let a = document.createElement('p')
+            let b = input[3].value
+            let [x, y, z] = input[3].value.split(', ')
+            a.innerText += 'areaShape( '+ x + ', ' + y + ', "' + z +'" ) --> ' 
+            div[3].appendChild(a)
+            if (z =='triangle'){
+                a.innerText += ((+x * +y)/2)
+                
+            } else if (z =='parallelogram'){
+                a.innerText += (+x * +y)
+                
+            }
+        }    
+        
+        const pHName = () => {
+            let a = document.createElement('p')
+            let z = Number(input[4].value)
+            a.innerText += 'pHName( '+ z +' ) --> '
+            div[4].appendChild(a)
+            if (z > 14) {
+                a.innerText += ' invalid'
+                
+            } else if ( z < 14 && z > 7){
+                a.innerText += ' alkaline'
+                
+            } else if (z == 7) {
+                a.innerText += ' neutral'
+                
+            } else {
+                a.innerText += ' acidic'
+            }   
+        }
+
+        const BMI = () => {
+            let a = document.createElement('p')
+            let [height, weight] = input[5].value.split(', ').map(i => Number(i))
+            let checkered = weight/((height/100)**2)
+            console.log(checkered, height, weight);
+            a.innerText += 'BMI( '+ input[5].value +' ) --> '
+            div[5].appendChild(a)
+            if (checkered < 18.5){
+                a.innerText += 'underweight'
+            } else if (checkered < 24.9){
+                a.innerText += 'normal'
+
+            } else if(checkered < 29.9){
+                a.innerText += 'overweight'
+            } else { a.innerText += 'obesity'}
+        }
+
+        const lastDigits = () => {
+            let a = document.createElement('p')
+            let [x, y, z] = input[6].value.split(', ').map(i => Number(i[i.length - 1]))
+            a.innerText += 'lastDigits( '+ input[6].value +' ) --> ' 
+            div[6].appendChild(a)
+            x*y == z ? a.innerText += 'true' : a.innerText += 'false'
+             
+            
+        }
+
+        const zodiac = () => {
+            let a = document.createElement('p')
+            let z = (2022 - Number(input[7].value)) % 12
+            a.innerText += 'zodiac( '+ input[7].value +' ) --> '
+            div[7].appendChild(a)
+            switch(z) {
+                case 0:
+                    a.innerText += '"Monkey"'
+                    break;
+                case 1:
+                    a.innerText += '"Rooster"'
+                    break;
+                case 2:
+                    a.innerText += '"Dog"'
+                    break;
+                case 3:
+                    a.innerText += '"Pig"'
+                    break;
+                case 4:
+                    a.innerText += '"Mouse"'
+                    break;
+                case 5:
+                    a.innerText += '"Buffalo"'
+                    break;
+                case 6:
+                    a.innerText += '"Tiger"'
+                    break;
+                case 7:
+                    a.innerText += '"Cat"'
+                    break;
+                case 8:
+                    a.innerText += '"Dragon"'
+                    break;
+                case 9:
+                    a.innerText += '"Snake"'
+                    break;
+                case 10:
+                    a.innerText += '"Horse"'
+                    break;
+                case 11:
+                    a.innerText += '"Goat"'
+                    break;
+                default:
+                    break;
+                }
+
+        }
+
+        const quadratic = () => {
+            let a = document.createElement('p')
+            let [x, y, z] = input[8].value.split(', ').map(i => Number(i))
+            a.innerText += 'quadratic( '+ input[8].value +' ) --> ' 
+            div[8].appendChild(a)
+            const delta = y**2 - 4*x*z
+            if (delta < 0) {
+                a.innerText += 'No solution'
+            } else if (delta == 0){
+                a.innerText += -y/(2*x)
+            } else {
+                a.innerText += (-y + Math.sqrt(delta))/(2*x) + '  and ' + (-y - Math.sqrt(delta))/(2*x)
+            }
+        }
+    </script>
+</body>
+</html>
