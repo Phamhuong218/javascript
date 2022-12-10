@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Loops</title>
+    <style>
+    body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 20px 
+    }
+    .container {
+        background: #85f1da;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        display: grid;
+        grid-template-rows: 100px 220px 30px 30px 30px auto;
+        gap: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Right-angled triangle
+        </h1>
+        <p>
+            Write a function that makes n calls to console.log to output the following triangle
+        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="rightAngledTriangle()">Create</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Left-angled triangle
+        </h1>
+        <p>
+            Write a function that makes n calls to console.log to output the following triangle        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="leftAngledTriangle()">Create</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Fizz Buzz
+        </h1>
+        <p>
+            Write a program that uses console.log to print all the numbers from 1 to n, with two exceptions. For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead. When you have that working, modify your program to print "FizzBuzz" for numbers that are divisible by both 3 and 5 (and still print "Fizz" or "Buzz" for numbers divisible by only one of those).        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="fizzBuzz()">Create</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Perfect Number
+        </h1>
+        <p>
+            A perfect number is a positive integer that is equal to the sum of it divisors. Number because the sum of the proper divisors in each case is equal to the number; the proper divisors of 6 are 1, 2, and 3, and their sum is 6.        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="isPerfectNum()">Check</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Abundant Number
+        </h1>
+        <p>
+            An abundant number or excessive number is a number n which the sum-of-divisors s are satisfied the condition: s > n        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="isAbundantNum()">Check</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Amicable Numbers
+        </h1>
+        <p>
+            Amicable numbers are a pair of numbers with the following property: the sum of all of the proper divisors of the first number (not including itself) exactly equals the second number while the sum of all of the proper divisors of the second number (not including itself) likewise equals the first number.        </p>
+        <label>
+            Enter a pair of numbers:    
+        </label>
+        <input type="text"/>
+        <button onclick="isAmicable()">Check</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Triangular Number Sequence
+        </h1>
+        <p>
+            This Triangular Number Sequence is generated from a pattern of dots that form a triangle. The first 5 numbers of the sequence, or dots, are: 1, 3, 6, 10, 15 . Write a function that converts n number of places with its corresponding number.        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="getTriangular()">Create</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Century Crisis
+        </h1>
+        <p>
+            Scientists have discovered that in four decades, the world will EXPLODE! It will also take three decades to make a spaceship to travel to a new planet that can hold the entire world population.
+
+            You must calculate the number of people there will be in three decades from now.
+            
+            The variable population is the world population now. Assume that every month, someone gives birth to more people n. Return the number of people there will be when the spaceship is complete.        
+        </p>
+        <label>
+            Enter current population and birth rate per month:    
+        </label>
+        <input type="text"/>
+        <button onclick="futurePeople()">Calculate</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Isosceles triangle
+        </h1>
+        <p>
+            Write a function that makes n calls to console.log to output the triangle:
+        </p>
+        <label>
+            Enter a number:    
+        </label>
+        <input type="number"/>
+        <button onclick="isoscelesTriangle()">Create</button>
+        
+    </div>
+
+    <div class="container">
+        <h1>
+            Chessboard
+        </h1>
+        <p>
+            Write a program that creates a string that represents an n×n grid, using newline characters to separate lines. At each position of the grid there is either a space or a "#" character. The characters should form a chessboard.For example: chessBoard(8, #, *);        </p>
+        <label>
+            Enter n and two signs for the cells:    
+        </label>
+        <input type="text"/>
+        <button onclick="chessboard()">Check</button>
+        
+    </div>
+    
+    <script>
+        let input = document.getElementsByTagName('input')
+        let div = document.querySelectorAll('.result')
+
+        const rightAngledTriangle = () => {
+            let n = Number(input[0].value)
+            let str
+            console.log('rightAngledTriangle( '+ n +' )')
+            for (let i = 1; i<=n; i++){
+                str = ''
+                for (let j= 1; j<=i; j++){
+                    str += '#'
+                }
+                console.log(str) 
+            }
+        }
+
+        const leftAngledTriangle = () => {
+            let n = Number(input[1].value)
+            let str
+            console.log('leftAngledTriangle( '+ n +' )')
+            for (let i = 1; i<=n; i++){
+                str = ''
+                for (let j= 1; j<=n; j++){
+                    j<=n-i ? str += ' ' : str += '#'
+                    
+                }
+                console.log(str);
+               
+            }
+        }
+
+        const fizzBuzz = () => {
+            let n = Number(input[2].value)
+            let str = ''
+            console.log('fizzBuzz( '+ n +' )')
+            for (let i = 1; i<=n; i++){
+                if (i%3 === 0 && i%5 === 0) {str += 'FizzBuzz '}
+                else if (i%3 ===0){str += 'Fizz '}
+                else if (i%5 ===0){str += 'Buzz '}
+                else {str += i + ' '}
+            }
+            console.log(str)
+        }
+
+        const isPerfectNum = () => {
+            let n = Number(input[3].value)
+            let sum = 1;
+            for (let i =2; i<=n/2; i++){
+                if (n%i ===0){
+                    sum += i
+                }
+            }
+            sum === n ? console.log('isPerfectNum( '+ n +' ) --> true') : console.log('isPerfectNum( '+ n +' ) --> false')
+        }
+
+        const isAbundantNum = () => {
+            let n = Number(input[4].value)
+            let sum = 1;
+            for (let i =2; i<=n/2; i++){
+                if (n%i ===0){
+                    sum += i
+                }
+            }
+            sum > n ? console.log('isAbundantNum( '+ n +' ) --> true') : console.log('isAbundantNum( '+ n +' ) --> false')
+        }
+
+        const isAmicable = () => {
+            let [x, y] = input[5].value.split(',').map(a => Number(a))
+            let sum = [1,1];
+            for (let i =2; i<=x/2; i++){
+                if (x%i ===0){
+                    sum[0] += i
+                }
+            }
+            for (let i =2; i<=y/2; i++){
+                if (y%i ===0){
+                    sum[1] += i
+                }
+            }
+            if (sum[0]===y && sum[1]===x) {
+                console.log('isAmicable( '+ x +','+ y +') --> true')
+            } else {console.log('isAmicable( '+ x +','+ y +') --> false')}
+        }
+
+        const getTriangular = () => {
+            let n = Number(input[6].value)
+            let arr = []
+            for (let i = 1; i<=n; i++){
+                arr.push(i*(i+1)/2) 
+            }
+            console.log('getTriangular('+ n+') --> ' + arr);
+        }
+        
+        const futurePeople = () => {
+            let [x, y] = input[7].value.split(',').map(a=>Number(a))
+            console.log('futurePeople( '+ x + ',' + y + ')--> '+ (x + y*12*30))
+        }
+
+        const isoscelesTriangle = () => {
+            let n = Number(input[8].value)
+            console.log('isoscelesTriangle( ' + n + ')')
+            let str
+            for (let i = 1; i<=n; i++){
+                str = ''
+                for (let j = 1; j<=2*n; j++){
+                    if (j<=n-i || j>=n+i){str+= ' '}
+                    else str += '#'
+                }
+                console.log(str);
+            }
+        }
+
+        const chessboard = () => {
+            let [n, sign1, sign2] = input[9].value.split(',')
+            console.log('chessBoard( '+input[9].value+' )');
+            let line1='', line2=''
+            for (let i = 1; i<=n; i++){
+                if(i%2===1){line1+= sign1 +' '}
+                else line1+= sign2 +' '
+            }
+            for (let i = 1; i<=n; i++){
+                if(i%2===1){line2+= sign2 +' '}
+                else line2+= sign2 +' '
+            }
+            for (let i = 1; i<=n; i++){
+                if(i%2===1){console.log(line1)}
+                else console.log(line2)
+            }
+            
+        }
+
+        
+    </script>
+</body>
+</html>
